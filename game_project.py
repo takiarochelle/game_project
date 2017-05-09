@@ -44,3 +44,53 @@ def milk_type():
 		print milk + " is not an option. Try again!"
 	else:
 		return milk
+
+print "Create a Drink and we'll Guess Your Birth Month!\n"
+print "Let's Play!!"
+
+def buzzfeed_game():
+	size = size_drink()
+	temp = temp_drink()
+	drink = drink_type()
+	milk = milk_type()
+
+	intro = "You were born in "
+
+	if size == "small":
+ 		if temp == "hot":
+ 			print intro + "December!"
+ 		elif temp == "iced":
+ 			month = randint(1, 3)
+ 			if month == 1:
+ 				print intro + "January!"
+ 			else:
+ 				print intro + "February!"
+	elif size == "medium":
+		if temp == "hot":
+			if drink == "latte" or drink == "frapp":
+				print intro + "October!"
+			else:
+				print intro + "November!"
+		elif temp == "iced":
+			print intro + "September!"
+	elif size == "large":
+		if temp == "hot":
+			if drink == "black coffee":
+				spring_month = randint(3, 6)
+				if spring_month == 3:
+					print intro + "March!"
+				else:
+					print intro + "April!"
+			else:
+				print intro + "May!"
+		elif temp == "iced":
+			if drink == "latte" or drink == "frapp":
+				if milk == "whole":
+					print intro + "June!"
+				elif milk == "2%" or milk == "none":
+					print intro + "July!"
+				else:
+					print intro + "August!"
+
+
+					
