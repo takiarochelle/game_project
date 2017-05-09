@@ -21,7 +21,8 @@ def temp_drink():
 	temp_list = ["iced", "hot"]
 	temp = raw_input("Choose a temperature (iced or hot): ")
 	if temp not in temp_list:
-		print size + " is not an option. Try again!"
+		print temp + " is not an option. Try again!"
+		temp_drink()
 	else:
 		return temp
 
@@ -31,7 +32,8 @@ def drink_type():
 	drink_list = ["latte", "frapp", "black coffee"]
 	drink = raw_input("Choose a drink (latte, frapp, black coffee): ")
 	if drink not in drink_list:
-		print drink + " is not an option. Try again!" 
+		print drink + " is not an option. Try again!"
+		drink_type() 
 	else:
 		return drink
 
@@ -42,11 +44,12 @@ def milk_type():
 	milk = raw_input("Choose a milk option (2%, whole, soy, none): ")
 	if milk not in milk_list:
 		print milk + " is not an option. Try again!"
+		milk_type()
 	else:
 		return milk
 
 print "Create a Drink and we'll Guess Your Birth Month!\n"
-print "Let's Play!!"
+print "Let's Play!!\n"
 
 def buzzfeed_game():
 	size = size_drink()
