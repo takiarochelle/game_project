@@ -1,22 +1,46 @@
-# Creata a Buzzfeed style game.
+from random import randint
 
-# We will guess the user's birth month based off of their coffee preferences
+# Buzzfeed style game where the user creates a coffee drink and the game will guess their birth month.
+# One user game
+# Define the values the user can input for each input
 
-# A one player game in which they will be asked a series of questions
+def size_drink():
+	# If size is not a valid option return an error and exit the program
+	# Return the user's value for use later
+	size_list = ["small", "medium", "large"]
+	size = raw_input("Choose a size (small, medium, large): ")
+	if size not in size_list:
+		print size + " is not an option. Try again!"
+		size_drink()
+	else:
+		return size
 
-# Ask the user for input on these :
-    # 1. Pick a size: small, medium, large
-    # 2. Pick iced or hot: iced, hot
-    # 3. Do you add milk? y/n
-    # 4. Pick a coffee shop: Starbucks, Peets, Philz, other
+def temp_drink():
+	# If temp is not a valid option return an error and exit the program
+	# Return the user's value for use later
+	temp_list = ["iced", "hot"]
+	temp = raw_input("Choose a temperature (iced or hot): ")
+	if temp not in temp_list:
+		print size + " is not an option. Try again!"
+	else:
+		return temp
 
-# Nice to Haves:
+def drink_type():
+	# If drink is not a valid option return an error and exit the program
+	# Return the user's value for use later
+	drink_list = ["latte", "frapp", "black coffee"]
+	drink = raw_input("Choose a drink (latte, frapp, black coffee): ")
+	if drink not in drink_list:
+		print drink + " is not an option. Try again!" 
+	else:
+		return drink
 
-# Throw an error if they choose an invalid option
-# Let the user play again
-print "Create a coffee drink and we'll guess what month you were born in!"
-
-size = raw_input("Choose a size (small, medium, or large): ")
-temp = raw_input("Choose a temp (iced or hot): ")
-drink = raw_input("Choose a drink (latte, frapp, or black coffee): ")
-milk = raw_input("Choose a milk option (2%, whole, soy, none: ")
+def milk_type():
+	# If milk is not a valid option return an error and exit the program
+	# Return the user's value for use later
+	milk_list = ["2%", "whole", "soy", "none"]
+	milk = raw_input("Choose a milk option (2%, whole, soy, none): ")
+	if milk not in milk_list:
+		print milk + " is not an option. Try again!"
+	else:
+		return milk
