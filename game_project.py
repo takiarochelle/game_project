@@ -93,4 +93,18 @@ def buzzfeed_game():
 					print intro + "August!"
 
 
-					
+def play_again():
+	while True:
+		repeat_game = raw_input("Would you like to play again? (Type y/n): ")
+		if repeat_game == "y" or repeat_game == "yes":
+			buzzfeed_game()
+		elif repeat_game == "n" or repeat_game == "no":
+			exit()
+		else:
+			print "Not a valid input. Type (y/n)."
+			play_again()
+
+buzzfeed_game()
+play_again()
+
+
