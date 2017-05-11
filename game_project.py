@@ -1,5 +1,6 @@
 from random import randint
 from termcolor import colored
+from results_game_project import guess_bday_fav_animal, fav_animal
 
 """
 
@@ -9,9 +10,9 @@ This is a one user game.
 
 """
 
-def size_drink():
-	# If size is not a valid option return an error and exit the program
-	# Return the user's value for use later
+def choose_size_drink():
+	# If user's input is not in size_list return an error and prompt the user for input again.
+	# Return the user's value
 	size_list = ["small", "medium", "large"]
 	size = raw_input("Choose a size (small, medium, large):\n>>> ")
 	if size not in size_list:
@@ -20,9 +21,9 @@ def size_drink():
 	else:
 		return size
 
-def temp_drink():
-	# If temp is not a valid option return an error and exit the program
-	# Return the user's value for use later
+def choose_temp_drink():
+	# If user's input is not in temp_list return an error and prompt the user for input again. 
+	# Return the user's value
 	temp_list = ["iced", "hot"]
 	temp = raw_input("Choose a temperature (iced or hot):\n>>> ")
 	if temp not in temp_list:
@@ -31,20 +32,20 @@ def temp_drink():
 	else:
 		return temp
 
-def drink_type():
-	# If drink is not a valid option return an error and exit the program
-	# Return the user's value for use later
+def choose_drink_type():
+	# If user's input is not in drink_list return an error and prompt the user for input again.
+	# Return the user's value
 	drink_list = ["latte", "frapp", "coffee"]
-	drink = raw_input("Choose a drink (latte, frapp, coffee):\n>>> ")
+	drink = raw_input("Choose a delicious drink! (latte, frapp, coffee):\n>>> ")
 	if drink not in drink_list:
 		print colored(drink + " is not an option. Try again!", "red")
 		return drink_type() 
 	else:
 		return drink
 
-def milk_type():
-	# If milk is not a valid option return an error and exit the program
-	# Return the user's value for use later
+def choose_milk_type():
+	# If user's input is not in milk_list return an error and propmt the user for input again.
+	# Return the user's value
 	milk_list = ["2%", "whole", "soy", "none"]
 	milk = raw_input("Choose a milk option (2%, whole, soy, none):\n>>> ")
 	if milk not in milk_list:
@@ -53,70 +54,50 @@ def milk_type():
 	else:
 		return milk
 
-bday_description = {
-			"Jan": "You are a born leader with an obsession for tacos!", 
-			"Feb": "You are a rebel with a love of dolphins!",
-			"March": "You like skipping in fields of daisies while listening to the Sound of Music!",
-			"April": "You enjoy traveling and fighting crime in your spare time!",
-			"March": "You enjoy watching the sunset while doing cartwheels on the beach"
-			}
 
-""" Generating random birthdays and years """
+def play_buzzfeed_game():
+	print colored("Build a drink and we'll guess your birthday and favorite animal!\nChoose from the options given.\nLet's Play!!!", "yellow", attrs=["bold"])
 
-year = randint(1970, 2001)
-day = randint(1, 31)
-feb_day = randint(1, 29)
-day_year = str(day) + ", " + str(year) + "! "
-feb_day_year = str(feb_day) + ", " + str(year) + "! "
-
-print colored("Build a drink and we'll guess your birthday!\n", "yellow", attrs=["bold"])
-print colored("Let's Play!!\n", "yellow", attrs=["bold"])
-print colored("Enter your answer after the >>>\n", "blue", attrs=["bold"])
-
-
-def buzzfeed_game():
-	size = size_drink()
-	temp = temp_drink()
-	drink = drink_type()
-	milk = milk_type()
-
-	intro = "You were born on "
+	size = choose_size_drink()
+	temp = choose_temp_drink()
+	drink = choose_drink_type()
+	milk = choose_milk_type()
 
 	if size == "small":
  		if temp == "hot":
- 			print colored(intro + "December " + day_year, "magenta", attrs=["bold"])
+ 			print guess_bday_fav_animal("December", fav_animal)
  		elif temp == "iced":
  			winter_month = randint(1, 3)
  			if winter_month == 1:
- 				print intro + "January " + day_year + bday_description["Jan"]
+ 				print guess_bday_fav_animal("January", fav_animal)
  			else:
- 				print intro + "February " + feb_day_year
+ 				print guess_bday_fav_animal("February", fav_animal)
 	elif size == "medium":
 		if temp == "hot":
 			if drink == "latte" or drink == "frapp":
-				print intro + "October " + day_year
+				print guess_bday_fav_animal("October", fav_animal)
 			else:
-				print intro + "November " + day_year
+				print guess_bday_fav_animal("November", fav_animal)
 		elif temp == "iced":
-			print intro + "September " + day_year
+			print guess_bday_fav_animal("September", fav_animal)
 	elif size == "large":
 		if temp == "hot":
 			if drink == "coffee":
 				spring_month = randint(3, 6)
 				if spring_month == 3:
-					print intro + "March " + day_year
+					print guess_bday_fav_animal("March", fav_animal)
 				else:
-					print intro + "April " + day_year
+					print guess_bday_fav_animal("April", fav_animal)
 			else:
-				print intro + "May " + day_year
+				print guess_bday_fav_animal("May", fav_animal)
 		elif temp == "iced":
 			if drink == "latte" or drink == "frapp":
-				if milk == "whole" or milk == "none":
-					print intro + "June " + day_year
+				if milk == "whole":
+					print guess_bday_fav_animal("June", fav_animal)
 				else:
-					print intro + "July " + day_year
+					print guess_bday_fav_animal("July", fav_animal)
 			else:
-				print intro + "August " + day_year
+				print guess_bday_fav_animal("August", fav_animal)
 
 
 def play_again():
@@ -130,7 +111,7 @@ def play_again():
 			print colored("Not a valid input. Type (y/n).", "red")
 			play_again()
 
-buzzfeed_game()
+play_buzzfeed_game()
 play_again()
 
 
