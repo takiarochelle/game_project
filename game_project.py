@@ -17,7 +17,7 @@ def choose_size_drink():
 	size = raw_input("Choose a size (small, medium, large):\n>>> ")
 	if size not in size_list:
 		print colored(size + " is not an option. Try again!", "red")
-		return size_drink()
+		return choose_size_drink()
 	else:
 		return size
 
@@ -28,7 +28,7 @@ def choose_temp_drink():
 	temp = raw_input("Choose a temperature (iced or hot):\n>>> ")
 	if temp not in temp_list:
 		print colored(temp + " is not an option. Try again!", "red")
-		return temp_drink()
+		return choose_temp_drink()
 	else:
 		return temp
 
@@ -39,7 +39,7 @@ def choose_drink_type():
 	drink = raw_input("Choose a delicious drink! (latte, frapp, coffee):\n>>> ")
 	if drink not in drink_list:
 		print colored(drink + " is not an option. Try again!", "red")
-		return drink_type() 
+		return choose_drink_type() 
 	else:
 		return drink
 
@@ -50,7 +50,7 @@ def choose_milk_type():
 	milk = raw_input("Choose a milk option (2%, whole, soy, none):\n>>> ")
 	if milk not in milk_list:
 		print colored(milk + " is not an option. Try again!", "red")
-		return milk_type()
+		return choose_milk_type()
 	else:
 		return milk
 
@@ -104,7 +104,7 @@ def play_again():
 	while True:
 		repeat_game = raw_input("Would you like to play again? (Type y/n): ")
 		if repeat_game == "y" or repeat_game == "yes":
-			buzzfeed_game()
+			play_buzzfeed_game()
 		elif repeat_game == "n" or repeat_game == "no":
 			exit()
 		else:
