@@ -4,97 +4,96 @@ from results_game_project import guess_bday_fav_animal, fav_animal
 
 """
 
-A Buzzfeed style game where the user creates a coffee drink.
-From the user's input the game will guess the user's birthday. 
+A Buzzfeed style game where the user creates a boba drink.
+From the user's input the game will guess the user's birthday and favorite animal. 
 This is a one user game.
 
 """
 
-def choose_size_drink():
+def choose_drink_size():
 	# If user's input is not in size_list return an error and prompt the user for input again.
 	# Return the user's value
 	size_list = ["small", "medium", "large"]
 	size = raw_input("Choose a size (small, medium, large):\n>>> ")
 	if size not in size_list:
 		print colored(size + " is not an option. Try again!", "red")
-		return choose_size_drink()
+		return choose_drink_size()
 	else:
 		return size
 
-def choose_temp_drink():
+def choose_pearls():
 	# If user's input is not in temp_list return an error and prompt the user for input again. 
 	# Return the user's value
-	temp_list = ["iced", "hot"]
-	temp = raw_input("Choose a temperature (iced or hot):\n>>> ")
-	if temp not in temp_list:
-		print colored(temp + " is not an option. Try again!", "red")
-		return choose_temp_drink()
+	pearls_list = ["yes", "no"]
+	pearls = raw_input("Would you like pearls? (yes or no):\n>>> ")
+	if pearls not in pearls_list:
+		print colored(pearls + " is not an option. Try again!", "red")
+		return choose_pearls()
 	else:
-		return temp
+		return pearls
 
-def choose_drink_type():
+def choose_sweetness_level():
 	# If user's input is not in drink_list return an error and prompt the user for input again.
 	# Return the user's value
-	drink_list = ["latte", "frapp", "coffee"]
-	drink = raw_input("Choose a delicious drink! (latte, frapp, coffee):\n>>> ")
-	if drink not in drink_list:
-		print colored(drink + " is not an option. Try again!", "red")
-		return choose_drink_type() 
+	sweetness_list = ["0%", "50%", "100%"]
+	sweetness = raw_input("Pick your sugar sweetness level: (0%, 50%, 100%):\n>>> ")
+	if sweetness not in sweetness_list:
+		print colored(sweetness + " is not an option. Try again!", "red")
+		return choose_sweetness_level() 
 	else:
-		return drink
+		return sweetness
 
-def choose_milk_type():
+def choose_flavor():
 	# If user's input is not in milk_list return an error and propmt the user for input again.
 	# Return the user's value
-	milk_list = ["2%", "whole", "soy", "none"]
-	milk = raw_input("Choose a milk option (2%, whole, soy, none):\n>>> ")
-	if milk not in milk_list:
-		print colored(milk + " is not an option. Try again!", "red")
-		return choose_milk_type()
+	flavor_list = ["taro", "milk tea", "oolong", "wintermelon"]
+	flavor = raw_input("Choose a flavor (taro, milk tea, oolong, wintermelon):\n>>> ")
+	if flavor not in flavor_list:
+		print colored(flavor + " is not an option. Try again!", "red")
+		return choose_flavor()
 	else:
-		return milk
+		return flavor
 
 
 def play_buzzfeed_game():
-	print colored("Build a drink and we'll guess your birthday and favorite animal!\nChoose from the options given.\nLet's Play!!!", "yellow", attrs=["bold"])
+	print colored("Create a boba drink and we'll guess your birthday and favorite animal!\nChoose from the options given.\nLet's Play!!!", "yellow", attrs=["bold"])
 
-	size = choose_size_drink()
-	temp = choose_temp_drink()
-	drink = choose_drink_type()
-	milk = choose_milk_type()
+	size = choose_drink_size()
+	pearls = choose_pearls()
+	sweetness = choose_sweetness_level()
+	flavor = choose_flavor()
 
 	if size == "small":
- 		if temp == "hot":
+ 		if pearls == "yes":
  			print guess_bday_fav_animal("December", fav_animal)
- 		elif temp == "iced":
+ 		elif pearls == "no":
  			winter_month = randint(1, 3)
  			if winter_month == 1:
  				print guess_bday_fav_animal("January", fav_animal)
  			else:
  				print guess_bday_fav_animal("February", fav_animal)
 	elif size == "medium":
-		if temp == "hot":
-			if drink == "latte" or drink == "frapp":
+		if pearls == "yes":
+			if sweetness == "0%" or sweetness == "100%":
 				print guess_bday_fav_animal("October", fav_animal)
 			else:
 				print guess_bday_fav_animal("November", fav_animal)
-		elif temp == "iced":
+		elif pearls == "no":
 			print guess_bday_fav_animal("September", fav_animal)
 	elif size == "large":
-		if temp == "hot":
-			if drink == "coffee":
-				spring_month = randint(3, 6)
-				if spring_month == 3:
+		if pearls == "yes":
+			if sweetness == "50%" or sweetness == "0%":
+				if flavor == "taro" or flavor == "wintermelon":
 					print guess_bday_fav_animal("March", fav_animal)
 				else:
 					print guess_bday_fav_animal("April", fav_animal)
 			else:
 				print guess_bday_fav_animal("May", fav_animal)
-		elif temp == "iced":
-			if drink == "latte" or drink == "frapp":
-				if milk == "whole":
+		elif pearls == "no":
+			if sweetness == "100%" or sweetness == "50%":
+				if flavor == "milk tea" or flavor == "taro":
 					print guess_bday_fav_animal("June", fav_animal)
-				else:
+				elif flavor == "oolong" or flavor == "wintermelon":
 					print guess_bday_fav_animal("July", fav_animal)
 			else:
 				print guess_bday_fav_animal("August", fav_animal)
