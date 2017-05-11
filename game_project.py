@@ -9,6 +9,13 @@ From the user's input the game will guess the user's birthday and favorite anima
 This is a one user game.
 
 """
+# def build_boba_drink():
+# 	boba_dict = {
+# 				"size": ["small", "medium", "large"], 
+# 				"pearls": ["yes", "no"], 
+# 				"sweetness": ["0%", "50%", "100%"], 
+# 				"flavor": ["taro", "milk tea", "oolong", "wintermelon"]
+# 				}
 
 def choose_drink_size():
 	# If user's input is not in size_list return an error and prompt the user for input again.
@@ -22,7 +29,7 @@ def choose_drink_size():
 		return size
 
 def choose_pearls():
-	# If user's input is not in temp_list return an error and prompt the user for input again. 
+	# If user's input is not in pearls_list return an error and prompt the user for input again. 
 	# Return the user's value
 	pearls_list = ["yes", "no"]
 	pearls = raw_input("Would you like pearls? (yes or no):\n>>> ")
@@ -33,7 +40,7 @@ def choose_pearls():
 		return pearls
 
 def choose_sweetness_level():
-	# If user's input is not in drink_list return an error and prompt the user for input again.
+	# If user's input is not in sweetness_list return an error and prompt the user for input again.
 	# Return the user's value
 	sweetness_list = ["0%", "50%", "100%"]
 	sweetness = raw_input("Pick your sugar sweetness level: (0%, 50%, 100%):\n>>> ")
@@ -44,7 +51,7 @@ def choose_sweetness_level():
 		return sweetness
 
 def choose_flavor():
-	# If user's input is not in milk_list return an error and propmt the user for input again.
+	# If user's input is not in flavor_list return an error and propmt the user for input again.
 	# Return the user's value
 	flavor_list = ["taro", "milk tea", "oolong", "wintermelon"]
 	flavor = raw_input("Choose a flavor (taro, milk tea, oolong, wintermelon):\n>>> ")
@@ -56,7 +63,7 @@ def choose_flavor():
 
 
 def play_buzzfeed_game():
-	print colored("Create a boba drink and we'll guess your birthday and favorite animal!\nChoose from the options given.\nLet's Play!!!", "yellow", attrs=["bold"])
+	print colored("Create a boba drink and we'll guess your birthday and favorite animal!\nChoose from options given.\nLet's Play!!!", "yellow", attrs=["bold"])
 
 	size = choose_drink_size()
 	pearls = choose_pearls()
