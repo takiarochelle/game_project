@@ -6,8 +6,8 @@ from termcolor import colored
 def guess_bday_fav_animal(month, dict1):
 	bday_intro = "You were born on "
 	fav_animal_intro = "Your favorite animals are "
-	day_year = " " + str(randint(1, 31)) + ", " + str(randint(1970, 2001)) + "!\n"
-	feb_day_year = " " + str(randint(1, 29)) + ", " + str(randint(1960, 2001)) + "!\n"
+	day_year = " " + str(randint(1, 31)) + ", " + str(randint(1980, 2001)) + "!\n"
+	feb_day_year = " " + str(randint(1, 29)) + ", " + str(randint(1980, 2001)) + "!\n"
 	if month == "February":
 		return colored(bday_intro + month + feb_day_year + fav_animal_intro + dict1[month], "magenta", attrs=["bold"])
 	else:
@@ -15,8 +15,8 @@ def guess_bday_fav_animal(month, dict1):
 
 
 fav_animal = {
-			"January": "unicorns!", 
-			"February": "dragons!",
+			"January": "unicorns",
+			"February": "penguins!",
 			"March": "dolphins!",
 			"April": "pigs!",
 			"May": "lions!",
@@ -24,7 +24,7 @@ fav_animal = {
 			"July": "monkeys!",
 			"August": "pandas!",
 			"September": "frogs!",
-			"October": "foxes!",
-			"November": "snakes!",
+			"October": "elephants!",
+			"November": "cats!",
 			"December": "horses!"
 			}
