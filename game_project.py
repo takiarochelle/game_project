@@ -31,7 +31,7 @@ def choose_pearls():
 	pearls = raw_input("Would you like to add pearls? (y/n)\n>>> ")
 	pearls = pearls.lower()
 	if pearls not in pearls_list:
-		print colored(low_pearls + " is not an option. Try again!", "red")
+		print colored(pearls + " is not an option. Try again!", "red")
 		return choose_pearls()
 	else:
 		return pearls
@@ -41,7 +41,7 @@ def choose_sweetness_level():
 	# If user's input is not in sweetness_list return an error and prompt the user for input again.
 	# Return the user's value
 	sweetness_list = ["a", "b", "c"]
-	sweetness = raw_input("What range of sweetness do you prefer?\na. 0-50%\nb. 50-75%\nc. 75-100%\n>>> ")
+	sweetness = raw_input("What level of sweetness do you prefer?\na. 0-50%\nb. 50-75%\nc. 75-100%\n>>> ")
 	sweetness = sweetness.lower()
 	if sweetness not in sweetness_list:
 		print colored(sweetness + " is not an option. Try again!", "red")
@@ -54,7 +54,7 @@ def choose_flavor():
 	# If user's input is not in flavor_list return an error and propmt the user for input again.
 	# Return the user's value
 	flavor_list = ["a", "b", "c", "d"]
-	flavor = raw_input("Lastly, choose a flavor!\na. taro\nb. green milk tea\nc. oolong\nd. Thai milk tea\n>>> ")
+	flavor = raw_input("Lastly, choose a flavor!\na. taro\nb. green milk tea\nc. oolong\nd. wintermelon\n>>> ")
 	flavor = flavor.lower()
 	if flavor not in flavor_list:
 		print colored(flavor + " is not an option. Try again!", "red")
@@ -64,7 +64,7 @@ def choose_flavor():
 
 
 def play_buzzfeed_game():
-	print colored("\nCreate a boba drink and we'll guess your birthday and favorite animal!\nEnter answer after the >>>.\nLet's Play!!!", "yellow", attrs=["bold"])
+	print colored("\nCreate a boba drink and we'll guess your birthday and favorite animal!\nLet's Play!!!\n", "yellow", attrs=["bold"])
 
 	size = choose_drink_size()
 	pearls = choose_pearls()
